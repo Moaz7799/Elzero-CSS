@@ -1,0 +1,118 @@
+.container {
+    background-color: white;
+    width: 500px;
+    height: 370px;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-template-areas: 
+    "e ee ee ee q l m m m"
+    "e o o o q l m m m"
+    "e o o o q l m m m"
+    "e eee eee eee q l m m m"
+    "e k k k q l m m m"
+    "e k k k q l m m m"
+    "e eeee eeee eeee q l ll ll ll"
+    ;
+}
+
+.one {
+    background-color: #323234;
+    grid-area: e;
+}
+
+.two {
+    background-color: #323234;
+    grid-area: ee;
+}
+
+.three {
+    background-color: #323234;
+    grid-area: l;
+}
+
+.four {
+    background-color: #323234;
+    grid-area: ll;
+}
+
+.five {
+    background-color: #323234;
+    grid-area: eee;
+}
+
+.six {
+    background-color: #323234;
+    grid-area: eeee;
+}
+
+.box-one {
+    background-color: #fea604;
+    width: 35px;
+    height: 35px;
+    transform: translate(233px, 326px);
+    animation: boxmove 5.5s linear 0s infinite normal ;
+}
+
+.box-two {
+    background-color: #fea604;
+    width: 35px;
+    height: 35px;
+    transform: translate(-156px, 9px);
+    animation: boxswing 5.5s linear 0s infinite normal ;
+}
+
+@keyframes boxmove {
+    12% {
+        transform: translate(66px, 326px);
+    }
+    28% {
+        transform: translate(66px, 9px);
+        opacity: 1;
+    }
+    37% {
+        transform: translate(66px, 9px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(233px, 326px);
+        opacity: 0;
+    }
+}
+
+@keyframes boxswing {
+    34% {
+        transform: translate(-156px, 9px);;
+    }
+    41% {
+        transform: translate(-323px, 9px);
+    }
+    50% {
+        transform: translate(-323px, 168px);
+    }
+    58% {
+        transform: translate(-156px, 168px);
+    }
+    63% {
+        transform: translate(-323px, 168px);
+    }
+    70% {
+        transform: translate(-323px, 327px);
+    }
+    75% {
+        transform: translate(-156px, 327px);
+    }
+    82% {
+        transform: translate(-323px, 327px);
+    }
+    90% {
+        transform: translate(-323px, 9px);
+    }
+    97% {
+        transform: translate(-156px, 9px);
+    }
+    100% {
+        transform: translate(-156px, 9px);
+    }
+}

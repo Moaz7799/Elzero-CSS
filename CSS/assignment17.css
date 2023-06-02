@@ -1,0 +1,249 @@
+.onee {
+    width: 50px;
+    height: 50px;
+    margin: 50px auto;
+    position: relative;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 5px solid #f42155;
+    border-left-color: transparent;
+    animation-name: rotate;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-play-state: running;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0turn);
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+
+.onee::before {
+    content: "";
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 5px solid #2490f3;
+    border-right-color: transparent;
+    position: absolute;
+    top: -15px;
+    left: -15px;
+}
+
+.onee::after {
+    content: "";
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 5px solid #fc9f00;
+    border-top-color: transparent;
+    position: absolute;
+    top: -25px;
+    left: -25px;
+}
+
+.onee:hover {
+    animation-play-state: paused;
+}
+
+
+.twoo {
+    width: 50px;
+    height: 50px;
+    margin: 50px auto;
+    border-radius: 50%;
+    border: 5px solid #2490f3;
+    border-bottom-color: transparent;
+    position: relative;
+    animation-name: spin;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+.twoo:hover,
+.twoo:hover::before,
+.twoo:hover::after {
+    animation-play-state: running;
+}
+
+.twoo::before {
+    content: "";
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    border-radius: 50%;
+    border: 5px solid #fc9f00;
+    border-bottom-color: transparent;
+    animation-name: spin;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+}
+.twoo::after {
+    content: "";
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    position: absolute;
+    top: -25px;
+    left: -25px;
+    border-radius: 50%;
+    border: 5px solid #000000;
+    border-bottom-color: transparent;
+    animation-name: spin;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+}
+
+.threee span {
+    width: 50px;
+    height: 50px;
+    margin: 50px auto;
+    display: flex;
+    border-radius: 50%;
+    border: 5px solid #000000;
+    border-bottom-color: transparent;
+    animation-name: spin;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+}
+
+
+.container {
+    background-color: transparent;
+    width: 500px;
+    height: 370px;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-template-areas: 
+    "e ee ee ee q l m m m"
+    "e o o o q l m m m"
+    "e o o o q l m m m"
+    "e eee eee eee q l m m m"
+    "e k k k q l m m m"
+    "e k k k q l m m m"
+    "e eeee eeee eeee q l ll ll ll"
+    ;
+}
+
+.container .one {
+    background-color: #323234;
+    grid-area: e;
+}
+
+.container .two {
+    background-color: #323234;
+    grid-area: ee;
+}
+
+.container .three {
+    background-color: #323234;
+    grid-area: l;
+}
+
+.container .four {
+    background-color: #323234;
+    grid-area: ll;
+}
+
+.container .five {
+    background-color: #323234;
+    grid-area: eee;
+}
+
+.container .six {
+    background-color: #323234;
+    grid-area: eeee;
+}
+
+.container .box-one {
+    background-color: #fea604;
+    width: 35px;
+    height: 35px;
+    transform: translate(233px, 326px);
+    animation: boxmove 5.5s linear 0s infinite normal ;
+}
+
+.container .box-two {
+    background-color: #fea604;
+    width: 35px;
+    height: 35px;
+    transform: translate(-156px, 9px);
+    animation: boxswing 5.5s linear 0s infinite normal ;
+}
+
+@keyframes boxmove {
+    12% {
+        transform: translate(66px, 326px);
+    }
+    28% {
+        transform: translate(66px, 9px);
+        opacity: 1;
+    }
+    37% {
+        transform: translate(66px, 9px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(233px, 326px);
+        opacity: 0;
+    }
+}
+
+@keyframes boxswing {
+    34% {
+        transform: translate(-156px, 9px);;
+    }
+    41% {
+        transform: translate(-323px, 9px);
+    }
+    50% {
+        transform: translate(-323px, 168px);
+    }
+    58% {
+        transform: translate(-156px, 168px);
+    }
+    63% {
+        transform: translate(-323px, 168px);
+    }
+    70% {
+        transform: translate(-323px, 327px);
+    }
+    75% {
+        transform: translate(-156px, 327px);
+    }
+    82% {
+        transform: translate(-323px, 327px);
+    }
+    90% {
+        transform: translate(-323px, 9px);
+    }
+    97% {
+        transform: translate(-156px, 9px);
+    }
+    100% {
+        transform: translate(-156px, 9px);
+    }
+}

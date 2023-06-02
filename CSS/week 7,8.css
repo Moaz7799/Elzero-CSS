@@ -1,0 +1,605 @@
+.transform1 {
+    margin: 200px auto;
+    width: 200px;
+    height: 200px;
+    background-color: rgb(255 0 0 / 39%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 30px;
+    transform: scaleX(2);
+    transform: scaleY(2);
+    transform: scale(2, 2);
+}
+/* 
+    2D Transform
+    -scaleX
+    -scaleY
+    -scale  => combines x and y  , if only one value is written it is copied to the other axis
+
+    scale x and y can be in negative value and it will flip the element either to the x axis or y axis
+    transform is different from changing the width or height, it stretches the element like mozzarella
+     
+*/
+
+.image {
+    overflow: hidden;
+    width: 1300px;
+    height: 711.99px;
+}
+
+.image img {
+    transition: 0.5s;
+}
+
+.image:hover img {
+    transform: scale(1.3) rotate(5deg);
+    opacity: 0.9;
+}
+
+/* 
+    2D Transform
+    -Rotate
+    -deg =>Degrees
+    -red =>Radians
+    -grad =>Gradians
+    -turn =>turn
+*/
+/* 
+    deg rotate clockwise, -deg rotate anti-clockwise
+    360 deg = 6.28 rad = 400 grad = 1 turn
+*/
+/* 
+    the div must be overflow: hidden and give it a width and height like the pic
+    scale and rotate must be in the same line 
+*/
+/* 
+    2D Transform
+    -translate(10px, 10px)  (x,y)
+
+    translate is better than moving by margin, you can write  translate (50%, 50%) to center the element even if you change its shape later
+
+    don't forget to use the prefix for it , -webkit-transform
+*/
+
+/* 
+    2D Transform
+    -skewX
+    -skewY
+    -skew
+*/
+.skew h2 {
+    position: relative;
+    color: white;
+    font-size: 52px;
+    margin: 20px auto;
+    width: fit-content;
+    padding: 30px;
+    line-height: 40px;
+}
+
+.skew h2::before {
+    content: '';
+    background-color: red;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transform: skewX(20deg);
+}
+
+/* 
+    matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())
+
+    transform: matrix(1.2, 0.2679, 0, 1.2, 20, 20);
+
+    transform: translateX(20px) translateY(20px) scaleX(1.2) skewY(15deg) skewX(0deg) scaleY(1.2);
+
+    translateX and translateY should be written first to get the same output as using matrix
+
+    15deg = 0.2679 (which is Tan(15) )
+*/
+/*
+  transform-origin
+  Syntax
+  Default Values => 50% 50% 0
+  2D Transform => transform-origin(X, Y)
+  3D Transform => transform-origin(X, Y, Z)
+  X-Axis
+  - CSS Unit [px, em, rem]
+  - %
+  - Keyword
+  -- Left = 0%
+  -- Center = 50%
+  -- Right = 100%
+  Y-Axis
+  - CSS Unit [px, em, rem]
+  - %
+  - Keyword
+  -- Top = 0%
+  -- Center = 50%
+  -- Bottom = 100%
+*/
+
+/* 
+    3D Transform
+    -rotateX  => as if there is a cylinder tube lying down  and the object is rotating around it ( like a morge7a  )
+    -rotateY  => as if there is a cylinder tube standing and the object is rotating around it ( a flag on a pillar )
+    -rotateZ  => if alone it will move like normal 2D rotate
+    -rotate3d(1, 1, 1, 60deg)   => 1 is equal to the value your right in the end like here it is 60deg
+
+    Combos:
+    transform: rotateY(90deg);
+    transform-origin: right top; 
+    = the object will come out from the right 
+
+    transform: rotateX(90deg);
+    transform-origin: right bottom;
+    = the object will come from down 
+
+*/
+
+/* 
+    3D Transform
+    -transform: translate3d(x, y, z)
+
+    to translate on Z-axis you need to add (perspective) to the parent div or container first ex: perspective: 300px;
+
+    you can add also perspective-origin to tell the browser from where you are looking 
+    if perspective-origin is left top then the object will move further away from left top to right bottom 
+    so always to the opposite of the perspective-origin
+
+    perspective: 300px;
+    perspective-origin: left top;
+
+    imagine the perspective-origin as scope you are looking through
+*/
+
+/* 
+    3D Transform 
+    -backface-visibility (if the element got flipped it will be hidden if you put hidden instead of visible)
+    -transform-style ( default value is flat only 2d space, preserve-3d will save its 3d space information) it is added to the parent container*
+    -flip product
+
+    to add a 3d effect mo7trm you will add perspective to the grand container
+
+*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contaienr {
+    margin: 50px auto;
+    width: 200px;
+    perspective: 800px;
+}
+
+.box {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    transform-style: preserve-3d;
+    transition: transform 1s cubic-bezier(0.72, 0.07, 0.32, 0.83);
+    transform-origin: right center;
+}
+
+.box:hover{
+    transform: translateX(-100%) rotateY(-180deg);
+}
+
+.box .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+    backface-visibility: hidden;
+}
+
+.box .front {
+    background-color: red;
+}
+
+.box .back {
+    background-color: green;
+    transform: rotateY(180deg);
+}
+
+.animation {
+    width: 200px;
+    height: 200px;
+    margin: 50px auto;
+    background-color: red;
+    font-size: xx-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    animation-name: change-color;
+    animation-duration: 2s;
+}
+
+@keyframes change-color {
+    from {
+        background-color: red;
+    }
+    to {
+        background-color: blue;
+    }
+}
+
+/* 
+
+  Animation
+  - KeyFrames
+  - Animation-Name
+  - Animation-Duration
+
+-write @keyframes then right the name for animation like (change-color) then add this name to the div
+you want to animate by writing =>  animation-name: change-color; and then give a duration for this animation
+by writing animation-duration: 3s;
+
+    from= 0%
+    to= 100%
+*/
+@keyframes change-color {
+    0% {
+      background-color: red;
+    }
+    50% {
+      background-color: blue;
+    }
+    80% {
+      background-color: black;
+    }
+    100% {
+      background-color: red;
+    }
+}
+
+.loading {
+    width: 200px;
+    height: 200px;
+    margin: 50px auto;
+    background-color: #e8e3e3;
+    border-radius: 50%;
+    border: 5px solid red;
+    border-left-color: transparent;
+    animation-name: spin;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.61, 0.49, 0.32, 0.87);
+}
+
+@keyframes spin {
+    0%{
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*
+  Animation
+  - Iteration Count ( to repeat the animation how many times )
+  - Timing Function ( linear or ease or etc) 
+  - Spinner Loading
+*/
+
+/* 
+   Animation
+   - Direction => animation-direction: reverse; or alternate-reverse or alternate
+   - Delay => animation-delay: 2s;  it means that the animation will start after 2s/ you can also type a 
+   negative value for the timing like -2s  so it will start from the middle of the transition or it 
+   will skip the first two seconds from the transition
+   - Fill-mode => animation-fill-mode: both;  it will make the element take the style of the last keyframe for (forwards)
+   or (backwards) it will take style for first keyframe or (both) it will take last keyframe depending on the animation-direction if it 
+   is normal direction or reversed
+   - Play-state => animation-play-state: running; running is the default value, you can make the object pause if you hover by adding to 
+   ::hover animation-play-state: paused;
+   - shorthand => animation: coloring 3s linear 2s infinite reverse;
+   animation: (name)(duration)(timing-function)(delay)(iteration-count)(direction)
+*/
+
+
+.load {
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+}
+
+.load div {
+    width: 20px;
+    height: 20px;
+    background-color: orchid;
+    border-radius: 50%;
+    margin: 0px 5px;
+    animation-name: up-and-down;
+    animation-duration: 0.9s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.load .two {
+    animation-delay: 0.3s;
+}
+
+.load .three {
+    animation-delay: 0.6s;
+}
+
+@keyframes up-and-down {
+    to {
+      opacity: 0.2;
+      transform: translateY(-20px);
+    }
+}
+
+/* 
+    no need to write from because it will start from the default place
+*/
+
+
+/*
+  CSS Selectors (PART 1)
+  - *
+  - Element => [p, div, h2]
+  - Element OtherElement => div p
+  - .class-name
+  - #id-name
+  - .parent .child
+  - .class-one.class-two  => im targeting an element with two classes ex: class="one two"
+  - .class-name div, .class-name p => grouping of classes by putting comma between them and each class on top of each other 
+  - Element.class-name => p.class-name  => im targeting a specific element with this class ex: im targeting only element P with with this class-name
+  - .parent > .child => Direct Child  => im targeting the DIRECT DIRECT DIRECT child only to this class 
+*/
+
+/*
+  CSS Selectors  (PART 2)
+  - Element + Other Element => [div + p]   => targeting any P that comes DIRECTLY after a div   (+ means next one after it immediately)
+  - Element ~ Other Elements => [p ~ div]  => targeting any div that comes  after a P EVEN if there is other elements between them
+  - [Attribute]  => you need to put those straight brackets {}
+  - Element[Attribute]  => targeting only this element with attribute
+  - [Attribute=Value]  => targeting any element with attribute = a specific value
+  - Element[Attribute=Value] => input[type="submit"]
+  - [Attribute~=Value] => Contains A Word   => this word must be alone and not within a string like > [Attribute~=ear]  im targeting ear and not earings
+  - [Attribute*=Value] => Contains A Atring  => this value can be a part from a string so it will target ear and earings
+  - [Attribute^=Value] => Start With A String => targets an attribute that starts with this value even if in string or word
+*/
+
+/*
+  CSS Selectors (Part 3)
+  - :first-child => to be the first child from the parent
+  - :last-child  => to be the last child from the parent
+  - :first-of-type => to be the first from the type of something 
+  - :last-of-type => to be the last from the type of something 
+  - :only-child => to be the only child without no one
+  - :only-of-type => to be the type of something in the children
+*/
+
+/*
+  CSS Selectors (Part 4)
+  - :not(Selectors) => all except this selector
+  - :nth-child(n) 
+  - :nth-last-child(n)
+  - :nth-of-type(n)
+  - :nth-last-of-type(n)
+  you can type the number or Odd and Even
+*/
+
+/*
+  CSS Selectors {Part 5}
+  - :root
+  - :checked => target the checked only
+  - :empty => target the empty element
+  - :disabled 
+  - :required
+  - :focus => when you focus on it
+  - ::selection => target the selection of something when you double left click on it to highlight it
+  - ::placeholder => target the placeholder in the input for example
+*/
+
+/*
+    Media Queries  => tasa2olat  waseet
+    Responsive Design
+
+    @media condition {
+        .parent > div {
+            width: 200px;
+            font-size: 24px;
+        }
+    }
+
+    the condition can be any criteria you put like print or a specific width or range 
+    which means when this condition is achieved do or change this specific things to that element
+    
+    examples of condition => print, (min-width:1200px), (max-width:1500px;), (min-width:200px) and (max-width:400px) => That's called Range
+
+    min-width means that start changing when it hits 1200px and up to infinite (1200 - infinite)
+    max-width means that start changing when it reaches 1200px and and down to infinite (infinite-1500)
+
+    more examples :
+
+@media print {
+  .parent > div {
+    font-size: 100px;
+  }
+}
+
+@media print {
+  .parent > div:first-child {
+    display: none;
+  }
+}
+
+@media (min-width: 1400px) {
+  .parent > div {
+    background-color: blue;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1400px) {
+  .parent > div {
+    background-color: blue;
+  }
+}        
+*/
+
+/* 
+    <link rel="stylesheet" href="css/print.css" media="print" />
+    <link rel="stylesheet" href="css/print.css" media="(min-width: 1000px) and (max-width: 1400px)" />
+    <style media="print">
+      .parent > div {
+        font-size: 100px;
+      }
+    </style>
+
+      You can add the media queries to the html page and link it to a new css file with media="Condition" OR
+      add a style and media="condition" inside it and then target the div or paragraph which you will start changing on it OR
+
+      just add the media to the main CSS file but under the element you are changing on to make to easier to reach in the future
+*/
+
+/*
+  Media Queries
+  Responsive Design
+  - Concept Of Width
+  - Mobile
+  - Small Screens
+  - Medium Screens
+  - Large Screens
+  - Future Updates
+
+  /* Mobile */
+
+@media (max-width: 767px) {
+}
+
+/* Small Screens */
+
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+/* Medium Screens */
+
+@media (min-width: 992px) {
+}
+
+/* Large Screens */
+
+@media (min-width: 1200px) {
+}
+
+/* Custom */
+
+@media (max-width: 1199px) {
+}
+
+
+/* 
+    to make responsive designs you better start with mobile designing first mobile-first in most cases not ALWAYS
+    
+    you have to add this meta to the head => <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    by typing meta:vp
+*/
+
+.ten .parent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.ten .parent > div {
+    color: mediumblue;
+    background-color: aqua;
+    padding: 15px;
+    margin-bottom: 10px;
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+}
+
+/* small screens */
+
+@media (min-width: 768px) {
+    .ten .parent > div {
+        width: calc(50% - 10px);
+    }
+}
+
+/* medium screens */
+
+@media (min-width: 992px) {
+    .ten .parent > div {
+        width: calc(25% - 10px);
+    }
+}
+
+.parenttt {
+    position: relative;
+    background-color: #eee;
+    margin: 20px auto;
+    width: 1200px;
+    height: 200px;
+  }
+  .parenttt div {
+    background-color: green;
+    color: white;
+  }
+  .product {
+    background-color: red;
+    color: white;
+  }
+  .center-position {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .circle-100 {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  .circle-200 {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+  .center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .border-r {
+    border-radius: 4px;
+  }
+
+
+/*
+  CSS Global Values
+  - inherit  => ywrs men el parent 
+  - initial  => the default value , for example the display value for all elements are inline and then the browser give them the other values like block or any other.
+   and for color the default value varies from browser to browser
+  - unset
+  --- If Inherit => inherit
+  --- If Not => initial
+  - revert CSS Level [4] => it returns the value to the user agent or browser values , for example the revert for margin in google is 8px and initial value is 0px 
+  - all
+*/

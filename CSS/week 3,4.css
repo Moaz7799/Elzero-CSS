@@ -1,0 +1,312 @@
+.parent {
+    background-color: red;
+    padding: 10px;
+}
+.parent div {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    background-color: #eee;
+    width: calc((100% - 100px) / 4);
+    margin-left: 20px;
+    float: left;
+}
+.clear {
+    clear: both;
+}
+/* 
+    Content Width Is: 100%
+    5 spaces 20px * 5 => 100px from content width
+    100% - 100px Available Space
+    4 elements The Width Is: (100% - 100px) / 4
+*/
+.opacity {
+    background-color: cyan;
+    opacity: 0.5;
+    color: white;
+}
+
+/* 
+    Position
+        -static => Default (the element is fixed in place)
+        -Relative  (the element will move freely in the page without moving another element with it)
+        -Absolute (if you make an element absolute if will be as if it is not there and things will take its place)
+        -Fixed (the element will move according to the full page and does not care about the container it is in
+                and also it will stay fixed in the same place even if you scroll down)
+        -sticky (the element will be sticked in a place when you scroll down also give it top 10px or anything) 
+*/
+
+.test-one,
+.test-two,
+.test-four {
+    color: white;
+    width: 100px;
+    padding: 10px;
+}
+.test-one {
+    background-color: red;
+}
+.test-two {
+    background-color: green;
+}
+.test-four {
+    background-color: blueviolet;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.test-parent {
+    width: 400px;
+    height: 300px;
+    background-color: rgb(52, 52, 246);
+    position: relative;
+}
+/* 
+    to make the element move in the parent you should make the parent position: relative
+    and the inside element (absolute), if not then the absolute element will move according to the full page
+*/
+.sticky {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    position: sticky;
+    top: 10px;
+}
+body {
+    height: 2000px;
+}
+
+.z-index{
+    position: absolute;
+}
+.z-index .test-one,
+.test-two,
+.test-three {
+    color: white;
+    width: 100px;
+    padding: 10px;
+    position: absolute;
+}
+.z-index .test-one {
+    background-color: red;
+    z-index: 3;
+    left: 20px;
+    top: 20px;
+}
+.z-index .test-two {
+    background-color: blue;
+    z-index: 2;
+    left: 15px;
+    top: 15px;
+}
+.z-index .test-three {
+    background-color: green;
+    z-index: 1;
+    left: 10px;
+    top: 10px;
+}
+/* 
+    z-index => nzam tabaqat which means what will come over what and it can be in negative value to be in last place
+*/
+
+/* 
+    list-style-type => the type of bullet before words
+    list-style-position => inside or outside
+    list-style-image => to add an image instead of bullets 
+    list-style => you can type all the things in one (type,position,img)
+    
+    THE IMPORTANT USE =>    list-style:none   padding-left:0    margin:0
+*/
+
+table {
+    width: 100%;
+    border-spacing: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+table td {
+    padding: 15px;
+    background-color: #eee;
+    border: 1px solid #e2e2e2;
+}
+table thead td {
+    background-color: #09a7a7;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-color: #a14842;
+}
+
+/* 
+    Pseudo Classes
+
+    :hover => when you hover by mouse on something
+    :checked => when item is checked (checkbox)
+    :visited => when you visit a link
+    :empty => if any element is empty it will change to ...
+    :focus => when you focus on anything like (input)it will change to ... 
+
+*/
+
+/* 
+    Pseudo Elements
+
+    ::first-letter
+    ::first-line
+    ::selection => when you select anything like paragraph it will change something like (background color and color)
+*/
+
+.parentt {
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.parentt .one {
+    background-color: #eee;
+    padding: 10px;
+    width: 600px;
+    float: left;
+    position: relative;
+}
+.parentt .one::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    right: -10px;
+    top: 0;
+    background-color: #009688;
+}
+.parentt .one::before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    margin-top: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent #009688 transparent transparent;
+}
+/* 
+    before and after pseudo elements are used to put things before or after the test in html without
+    writing anything in html and you have to use (Content) attribute so it can be shown 
+*/
+.parentt .user {
+    background-color: #eee;
+    width: 50px;
+    margin-right: 20px;
+    padding: 10px;
+    height: 55.5px;
+    float: left;
+    font-size: 50px;
+    text-align: center;
+}
+
+.parenttt {
+    margin-bottom: 20px;
+    overflow: hidden;
+    counter-increment: members-counter;
+}
+.parenttt .one {
+    background-color: #eee;
+    padding: 10px;
+    width: 600px;
+    float: left;
+    position: relative;
+}
+.parenttt .one::after {
+    content: counter(members-counter);
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-weight: bold;
+    right: -10px;
+    top: 50%;
+    margin-top: -10px;
+    background-color: #009688;
+}
+/* 
+    to make an element in centered in height => top:50% ,  margin-top: negative half the height of element
+
+*/
+.parenttt .one::before {
+    content: attr(data-text);
+    display: none;
+}
+.parenttt .one:hover::before {
+    display: block;
+}
+.parenttt .user {
+    background-color: #eee;
+    width: 50px;
+    margin-right: 20px;
+    padding: 10px;
+    height: 55.5px;
+    float: left;
+    font-size: 50px;
+    text-align: center;
+}
+
+.test-arrow {
+    list-style: none;
+}
+.test-arrow li {
+    position: relative;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+.test-arrow li::before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    margin-top: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent #009688 transparent transparent;
+}
+
+/* 
+    Vendor Prefixes
+
+    1) New CSS Feature Appeared 
+    2) Browsers Tests The Feature In Version X
+    3) During Testin The Browsers Add Prefixes To Give Developers The Ability To Use It
+    4) The Feature Is Fully Supported In Version Y, So No Need For Prefixes
+
+    webkit => Chrome, Safari, New Opera Version
+    moz => Firefox
+    ms => Ie, Edge
+    o => Old Versions Of Opera
+*/
+
+/* 
+    border-radius => gives a curve to the corners
+    -if you want to make circle so make a box with same width and height then border-radius 50%;
+    -you can write two values for each corner ex: (border-top-left-radius: 20px 10px;)
+*/
+
+/* 
+    box-shadow 
+
+    syntax => H-shadow | V-shadow | Blur | Spread | Color | Inset
+*/
+
+/* 
+    box-sizing => default is content-box,  if you want the width and height to stay same you should use border-box
+    so padding and border will not effect the width of container 
+
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    (*) is wildcard
+
+    this is used to apply border-box to all elements
+
+*/

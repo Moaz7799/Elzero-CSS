@@ -1,0 +1,18 @@
+.My-P {
+    color: red;
+    font-size: 40px;
+}
+#My-P {
+    color: rgb(0, 255, 106);
+    font-size: 40px;
+}
+    /* 
+        to get A CLASS Put (.) before the name
+        to get An ID put (#) before the name 
+    */
+.special {
+    color: blue;
+}
+.user-test {
+    color: brown;
+}

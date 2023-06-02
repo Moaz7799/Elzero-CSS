@@ -1,0 +1,58 @@
+.zero {
+    width: 400px;
+    background-color: white;
+    padding: 10px 20px;
+    border: 3px solid red;
+    text-align: center;
+    margin: auto;
+}
+.zero p {
+    border: inherit;
+    background-color: #eee;
+    padding: inherit;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.zeroo {
+    width: 400px;
+    background-color: white;
+    padding: 10px 20px;
+    border: 3px solid blue;
+    text-align: center;
+    margin: auto;
+}
+.zeroo p {
+    border: inherit;
+    background-color: #eee;
+    padding: inherit;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.one {
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+}
+.two {
+    font-family: 'Cairo', sans-serif;
+    text-align: center;
+}
+.three {
+    font-family: 'Jomhuria', cursive;
+    text-align: center;
+}
+html {
+    font-size: 20px;
+}
+.four {
+    font-size: 2.5rem;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif
+}
+.five {
+    font-size: 2rem;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif
+}
+.six {
+    font-size: 1.5rem;
+    text-align: center; 
+    font-family: Arial, Helvetica, sans-serif
+}

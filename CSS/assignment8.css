@@ -1,0 +1,135 @@
+.one{
+ position: absolute;
+}
+.one .green,
+.red,
+.blue,
+.black {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+}
+.green {
+    background-color: #009688;
+    z-index: 3;
+    top: 30px;
+    left: 30px;
+}
+.red {
+    background-color: #f44336;
+    z-index: 4;
+    top: 40px;
+    left: 40px;
+}
+.blue {
+    background-color: #03a9f4;
+    z-index: 2;
+    top: 20px;
+    left: 20px;
+}
+.black {
+    background-color: #333333;
+    z-index: 1;
+    top: 30px;
+    left: 20px;
+}
+
+.two {
+    width: 400px;
+    background-color: #eee;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    border-top: 2px solid #f44336;
+    border-bottom: 2px solid #f44336;
+    border-left: 2px solid #2196f3;
+    border-right: 2px solid #2196f3;
+    position: relative;
+    line-height: 160%;
+}
+.two span {
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    background-color: #2196f3;
+}
+.two .top-left {
+    top: -10px;
+    left: -15px;
+    border-right: 3px solid #f44336;
+}
+.two .bottom-left {
+    bottom: -10px;
+    left: -15px;
+    border-right: 3px solid #f44336;
+}
+.two .bottom-right {
+    bottom: -10px;
+    right: -15px;
+    border-left: 3px solid #f44336;
+}
+.two .top-right {
+    top: -10px;
+    right: -15px;
+    border-left: 3px solid #f44336;
+}
+
+.master {
+    width: 400px;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+ul li {
+    list-style-type: none;
+    padding: 5px 10px;
+    background-color: #eee;
+    margin: 10px 0px;
+}
+ul li ol li,
+ul li ul li {
+    background-color: white;
+}
+.html ol li {
+    list-style-type: decimal;
+}
+.css ol li {
+    list-style-type: upper-roman;
+}
+.js ul {
+    padding-left: 0px;
+}
+.js ul li {
+    list-style-position: inside;
+    list-style-type: circle;
+}
+
+table {
+    width: 700px;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+caption {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+table thead tr th {
+    background-color: #404040;
+    color: #fefdf8;
+    padding: 10px;
+}
+table tbody tr td {
+    background-color: #eee;
+    text-align: center;
+    padding: 10px;
+}
+ .buttonv {
+    margin: 5px;
+    background-color: #03a9f4;
+    color: #fdfefd;
+}
+.delete {
+    background-color: #e91e63;
+    color: #fdfefd;
+}

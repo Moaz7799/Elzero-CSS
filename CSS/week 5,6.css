@@ -1,0 +1,416 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.trans {
+    background-color: burlywood !important;
+    width: 200px;
+    height: 100px;
+    transition-duration: 1s;
+    transition-delay: 200ms;
+    transition-property: width,height,background-color;
+    transition-timing-function: ease;
+}
+/* 
+    syntax =>  transition:all 2s 0.5s ease;
+    (property , duration , delay , timing-function)
+     
+    to write for 2 different properties (add , between them)
+    transition: width 3s, height 1s;
+
+
+    ex:  transition-duration: 1s ,2s
+         transition-property: width,height
+
+         it means =>  width 1s ,height 2s
+*/
+
+/* 
+    For transition it accepts S and MS 1000ms=1s
+    transition-property => let you choose the property that will be effected by this transition
+
+    transition-timing-function:
+    - ease (slow,fast,slow)
+    - ease-in (slow,fast)
+    - ease-out (fast,slow)
+    - ease-in-out (slow,fast,slow) not like ease
+    - linear (same speed during transition
+
+*/
+/* !important => over writes any property , alone don't use it , editing on someone's project then use it ALOT */
+.trans:hover {
+    width: 280px;
+    height: 120px;
+    background-color: crimson;
+}
+
+/*
+  The Margin Collapse
+  [1] Only Vertical Margin Collapse
+  [2] Bigger Margin Wins
+  [3] Margin Collapsing With Elements Without Anything Between
+  [4] Nesting Does Not Prevent Collapse
+*/
+.parent {
+    overflow: hidden;
+    margin: auto;
+    width: 400px;
+    height: 200px;
+    padding: 10px;
+    background-color: #eee;
+}
+.parent .one,
+.parent .two {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+.one {
+    background-color: #ddd;
+}
+.two {
+    background-color: #aaa;
+}
+.up {
+    background-color: red;
+    color: white;
+    height: 80px;
+    margin-bottom: 40px;
+}
+.down {
+    background-color: green;
+    color: white;
+    height: 80px;
+    margin-top: 40px;
+}
+
+/*
+  CSS Variables
+  - Global Variable
+  - Local Variable
+  var(Variable Name, Fall Back Value)
+*/
+
+:root {
+    --mainColor: blue;
+    --mainPadding: 10px;
+}
+.main {
+    background-color: var(--mainColor, black);
+    color: white;
+    padding: calc(20px + var(--mainPadding));
+}
+h2 {
+    color: var(--mainColor);
+    background-color: #eee;
+    padding: var(--mainPadding);
+}
+p {
+    color: var(--mainColor);
+    border: 2px solid var(--mainColor);
+    padding: var(--mainPadding);
+}
+a:hover {
+    color: var(--mainColor);
+}
+.local {
+    --mainColor: black;
+    background-color: var(--mainColor);
+    color: white;
+}
+/*
+  Flexible Box
+
+  FOR PARENT !
+
+  - display: flex => To Start Flexible Box
+  - flex-direction: row => Default Value, column , column-reverse
+  - flex-wrap: nowrap => Default Value , wrap=> get the extra element down line, wrap-reverse=> the extra element goes up
+  - flex-flow: [Flex-Direction] + [Flex-Wrap]
+  ---
+  - justify-content: 
+    flex-start => Default Value
+    flex-end => extra element goes down but to the end of the line
+    center => put the extra element in the middle of next line
+    space-between => put the extra space only between the elements.  ex: 3 elements, 2 spaces
+    space-around => put extra space before and after  each element.   ex: 3 elements, 6 spaces
+    space-evenly => put extra space before and after each element but without duplication.  ex: 3 elements, 5 spaces
+    (mix between space-between and space-around)
+  ---
+  - align-items:
+    stretch => default value  (stretch to fit content vertically)
+    
+    (vertically align)
+    flex-start
+    flex-end
+    center
+
+    to center the item in the flex box write:
+    justify-content: center;
+    align-items: center;
+  ---
+  - align-content: (the whole box not just elements inside) (it deals with the whole content inside the flex-box)
+   (works when there is more than one line)
+    stretch => Default Value  
+
+    flex-start, flex-end, center, space-around, space-between, space-evenly
+
+    FOR CHILD !
+
+  - flex-grow: 0 => Default Value (When there is empty space, the chosen child will start growing)
+  - flex-shrink: 1 => Default Value (when there is no enough space for children, the chosen child will shrink more)
+  - order: 0 => Default Value
+   (you give each child the order number to for ordering them as you want but you should write order for each children)
+   (if you write negative-value the element will go to the begging of row or column automatically without writing order for other elements)
+
+  - flex-basis: auto => Default Value
+   (you give a value like 200px and it will be as width if direction is row and it will be as height if direction is column)
+  - flex: [Flex Grow] [Flex Shrink] [Flex Basis] 0 1 Auto
+
+  -you can display as : inline-flex to bring two elements beside each other like (inline-flex with inline-block) on same line
+  - align-self: auto => Default Value (if you want a specific element to not follow the align-items of the parent) 
+*/
+*/
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.flexbox .flex {
+    background-color: #eee;
+    width: 600px;
+    padding: 20px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+}
+.flexbox .flex div {
+    background-color: #f00;
+    color: white;
+    width: 25%;
+    text-align: center;
+    padding: 20px;
+}
+.flexbox .float {
+    overflow: hidden;
+    background-color: #eee;
+    width: 600px;
+    padding: 20px;
+    margin: 20px auto;
+}
+.flexbox .float div {
+    background-color: #f00;
+    color: white;
+    float: right;
+    width: 25%;
+    text-align: center;
+    padding: 20px;
+}
+.filter img {
+    transition: 0.5s;
+    filter: grayscale(100%)
+}
+.filter img:hover {
+    filter: grayscale(0);
+}
+/* 
+    filters => when using it make sure it's supported by the website (can i use)
+    common used filter => grayscale, blur, invert
+*/
+
+.gradient {
+    width: 400px;
+    height: 200px;
+    background-color: #eee;
+    margin: 20px auto;
+    position: relative;
+    padding: 10px;
+}
+.gradient::before {
+    content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  background-color: red;
+  height: 10px;
+  background-image: linear-gradient(
+    to right,
+    #2980b9 20%,
+    #27ae60 20%,
+    #27ae60 40%,
+    #d35400 40%,
+    #d35400 60%,
+    #8e44ad 60%,
+    #8e44ad 80%,
+    #c0392b 80%
+  );
+}
+/*
+  Gradients
+  linear-gradient(Direction || Angle, Color Stop 1, Color Stop 2, ....)
+*/
+
+.events input {
+    caret-color: red;
+}
+.events a {
+    pointer-events: none;
+}
+/* 
+    caret-color => to unify the color of your website   
+    pointer-events:none => to remove any event of a button or element or anything
+*/
+
+/*
+  Grid
+  Parent
+  - display: grid | inline-grid
+  - grid-template-columns: [Number Of Columns In] => [Px, %, Auto, fraction, Repeat(), Mix, ]
+
+  - Repeat() => first number of columns then its width like  (3, 200px)
+  - fraction is greedy and auto is shy 
+  for example: grid-template-columns: auto auto 1fr 1fr;
+  auto column will take the minimum width to just fit the content inside and the rest will be divided between the fractions
+
+  - grid-template-rows: [Number Of Rows In] => [Px, %, Auto, Fraction, Repeat(), Mix]
+  - gap: [Row Gap] [Column Gap]
+
+  - justify-content (if you write a value for it like space-between, the width of the elements will be fit to content)
+  - align-content (if you write a value for it like space-between, the height of the elements will be fit to content)
+
+  Child
+  - grid-column: [Grid-Column-Start] [Grid-Column-End]
+  - grid-row: [Grid-Row-Start] [Grid-Row-End]
+  - grid-area: [Grid-Row-Start] [Grid-Column-Start] [Grid-Row-End] [Grid-Column-End]
+  example = "grid-area: 2 / 2 / 5 / 6"
+  
+  you can write start and end points like => "grid-row: 1/5"  , or  , "grid-row: span 4"
+
+*/
+
+* {
+    box-sizing: border-box;
+}
+.gridcol .parentgrid {
+    margin: 20px auto;
+    width: 800px;
+    height: 500px;
+    background-color: #ddd;
+    display: grid;
+    grid-template-columns: repeat(4 , 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    /* row-gap: 10px;
+     column-gap: 10px; */
+    gap: 10px 10px;
+    justify-content: space-between;
+    align-content: space-between;
+}
+.gridcol .parentgrid div {
+    background-color: red;
+    color: white;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.layout ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.layout ul li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+.layout .page {
+  height: 100vh;
+  background-color: #eee;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: 50px auto 50px;
+  grid-template-areas:
+    "logo logo nav nav nav nav nav nav nav nav"
+    "cont cont cont cont cont cont cont . side side"
+    "foot foot foot foot foot foot foot foot foot foot";
+}
+.layout h2 {
+  grid-area: logo;
+  background-color: red;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+.layout nav {
+  grid-area: nav;
+  background-color: blue;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+.layout section {
+  grid-area: cont;
+  background-color: yellow;
+  color: black;
+  padding: 0;
+  margin: 0;
+}
+.layout aside {
+  grid-area: side;
+  background-color: green;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+.layout footer {
+  grid-area: foot;
+  background-color: black;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+.parenttt {
+    margin: 20px auto;
+    width: 800px;
+    height: 500px;
+    background-color: #ddd;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 10px 10px;
+}
+.parenttt div {
+    background-color: red;
+    color: white;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+.parentttt {
+    margin: 20px auto;
+    height: 500px;
+    background-color: #ddd;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+/* 
+    auto-fill => means it will fill the total area of page
+    min-max => it will start with min value like 200px and max will be 1fr because it is greedy and will not leave any empty space
+*/
+.parentttt div {
+    background-color: red;
+    color: white;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+}

@@ -1,0 +1,41 @@
+.elzero {
+    color: black;
+    background-color: white;
+    text-transform: capitalize;
+    text-align: center;
+    text-shadow: 0.5px 0.5px 0 red, 1px 1px 0 blue;
+}
+.one {
+    text-transform: uppercase;
+    text-align: center;
+}
+.two {
+    text-transform: capitalize;
+    text-align: center;
+}
+.three {
+    text-align: center;
+}
+.lorem {
+    background-color: #eee;
+    color: black;
+    width: 400px;
+    padding: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: auto;
+    font-size: 19.5px;
+}
+a {
+    background-color: rgb(61, 158, 61);
+    color: white;
+    width: 90px;
+    padding: 10px 0px;
+    margin: auto;
+    border-bottom: darkgreen solid 6px;
+    display: block;
+    text-decoration: none;
+    text-transform: capitalize;
+    text-align: center;
+}

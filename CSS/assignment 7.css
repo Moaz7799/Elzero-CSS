@@ -1,0 +1,60 @@
+.parent {
+    width: 1000px;
+    background-color: #eee;
+    margin-left: auto;
+    margin-right: auto;
+}
+.parent p {
+    clear: both;
+}
+.parent div {
+    background-color: gainsboro;
+    text-align: center;
+}
+.parent .full {
+    float: left;
+    width: calc(100% - 30px);
+    padding: 15px 0px;
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 7.5px;
+}
+.parent .third {
+    float: left;
+    width: calc((100% - 60px) / 3);
+    padding: 15px 0px;
+    margin-left: 15px;
+    margin-top: 7.5px;
+    margin-bottom: 7.5px;
+}
+.half {
+    float: left;
+    width: calc((100% - 45px) / 2);
+    padding: 15px 0px;
+    margin-left: 15px;
+    margin-top: 7.5px;
+    margin-bottom: 7.5px;
+}
+.quart{
+    float: left;
+    width: calc((100% - 75px) / 4);
+    padding: 15px 0px;
+    margin-left: 15px;
+    margin-top: 7.5px;
+    margin-bottom: 15px;
+}
+.second div {
+    margin: 20px auto;
+    width: 300px;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 20px;
+    background-color: rgb(179, 179, 179);
+    color: black;
+}
+.second .one {
+    background-color: rgba(179, 179, 179, 0.1)
+}
+.second .two{
+    opacity: 0.1;
+}

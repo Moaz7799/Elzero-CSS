@@ -1,0 +1,65 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.parentzero {
+  height: 300px;
+  border: 1px solid transparent;
+}
+.parent {
+  background-color: #f2f2f4;
+  width: 400px;
+  height: 200px;
+  margin: 0px auto;
+  margin-top: 80px;
+  padding: 10px 2px;
+  text-align: center;
+  transition: margin-top 500ms ease;
+}
+.parent .one {
+  margin: 10px;
+}
+.parent .two {
+  background-color: #dededc;
+  padding: 20px 0px;
+  margin: 10px;
+  transition: margin-top 1s 500ms ease;
+}
+.parent:hover {
+  margin-top: 30px;
+}
+.parent:hover .two {
+  margin-top: 40px;
+}
+
+.parentwo div {
+  background-color: #eee !important;
+  width: 400px;
+  margin: auto;
+  color: black !important;
+  border: 0px solid !important;
+  text-align: center;
+  font-size: 20px !important;
+  position: relative;
+}
+.parentwo div::before {
+  background-color: #eee;
+  content: "Elzero";
+  position: absolute;
+  z-index: 100;
+  width: 100px;
+  left: 170px;
+  font-weight: bold;
+}
+
+/* :root {
+    --mainColor: #009688;
+    --mainPadding: 10px;
+} */
+
+.parentfive div {
+  width: 400px;
+  color: var(--mainColor, red);
+  padding: var(--mainPadding, 10px);
+  border: 2.5px solid var(--mainColor, black);
+  margin: 10px auto;
+}

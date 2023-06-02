@@ -1,0 +1,238 @@
+.zero {
+    background-color: red; /* Color Name */
+    background-color: rgb(50 70 255 / 50%); /* Red Green Blue Alpha channel */
+    background-color: #00ff00; /* Color Hex Code */
+    background-image: url(../images/abstract-simple-background_53876-99863.jpg);
+    background-repeat: no-repeat;
+    /* repeats the img you have either on X axis or Y axis or Both or None  */
+    background-attachment: scroll; 
+    /* scroll(the background will move with scrolling or fixed (the background will stay in place) */
+    background-position:0%;
+    /* you can change position by direction (top,left,right,center,bottom) or by Pixels or percentage  */
+    background-size: 51%;
+    /* cover or contain or by pixels or percentage*/
+    padding: 10px;
+    /* Top Right Bottom Left (clockwise) */
+    /* if you just right two values, it will copied to the opposite direction */
+    /* padding accepts pixels and percentage but not negative values */
+    margin: 20px;
+    /* the margin accepts negative value */
+    /* if you make margin auto it will center the element in the middle */
+    width: 80%;
+    /* 80% Of the container */
+    border-width: 10px;
+    border-color: red;
+    border-style: solid;
+    border: 10px red solid;   
+}
+.one {
+    background-color: rgb(7, 80, 70);
+    width: 300px;
+    padding: 10px;
+    border: 10px red solid;
+    outline: 20px solid rgb(118, 5, 184);
+    /* you cant control each direction of the outline and also it does not affect the width of container.
+       the outline is used rarely */
+}
+/* 
+  Block
+
+  -Take full width if no width specified
+  -Add line break
+  -Respect padding, margin, width, height
+
+  inline
+
+  -Do not respect width, height
+  -Respect padding and margin [ just from left & right ]
+  -Do not add line break
+
+  inline Block
+
+  -Allow elements before and after it
+  -Respect padding, margin, width, height
+
+*/
+.two {
+    display: block;
+    background-color: #eee;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    height: 30px;
+}
+.three {
+    display: inline;
+    background-color: #eee;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    height: 30px;
+}
+.four {
+    display: inline-block;
+    background-color: #eee;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    height: 30px;
+}
+.five {
+    background-color: red;
+    margin: 10px;
+    display: none;
+    /* it hide the text and it will not reserve its place in the page */
+    visibility: visible hidden;
+    /* hidden will not show the text in the page but it will still take place */
+}
+.onee,
+.twoo,
+.threee,
+.fourr {
+    padding: 10px;
+    margin: 10px;
+    background-color: #eee;
+}
+.zeroo p {
+    background-color: #eee;
+    border: 2px solid gold;
+    padding: 5px;
+}
+.opp {
+    background-color: red;
+    color: white;
+    min-width: 300px;
+    max-width: 400px;
+    min-height: 50px;
+    max-height: 80px;
+    width: fit-content;
+}
+.lorem {
+    background-color: #eee;
+    width: 150px;
+    height: 150px;
+    margin: 20px auto;
+    border-radius: 6px;
+    overflow: auto;
+    /* Overflow manges the extra content, you can control X and Y axis alone,
+    By visible or  Hidden or scroll or auto */
+}
+
+.shadow {
+    background-color: #f9f9f9;
+    text-shadow: 1px 1px 1px rebeccapurple;
+    text-align: center;
+    direction: ltr;
+    text-transform: capitalize;
+}
+/* syntax of text shadow => H-shadow, V-shadow, Blur, Color */
+.shadow img {
+    vertical-align: middle;
+}
+
+.decor a {
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    display: inline-block;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.spacing {
+    letter-spacing: 1px;
+    text-indent: 10px;
+    line-height: 1.6;
+    word-spacing: 3px;
+    width: 450px;
+    background-color: #d8d8d8;
+    white-space: nowrap;
+}
+/* 
+    text-indent => gives a space before the word and can be negative
+    line-height => spaces between lines between them and best for reading is 1.6 or 160%
+    white-space => what will happen when the text fill the container will it go under it (normal) or (nowrap) it continues on same line
+ */
+.link p {
+    background-color: #eee;
+    width: 300px;
+    word-break: break-word;
+}
+/* word-break => the breaking of single word if it exceeds the container. (break-word , break-all) */
+
+.hover {
+    background-color: #eee;
+    padding: 10px;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.hover:hover {
+    overflow: visible;
+}
+
+.inherit {
+    text-align: center;
+    padding: 20px;
+    background-color: #eee;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 2px solid blue;
+}
+.inherit p {
+    border: 2px solid;
+    border-color: inherit;
+    padding: inherit;
+}
+/* inherit means it will will take the same value of parent */
+
+.with-ser,
+.san-ser,
+.cairo {
+    background-color: #eee;
+    padding: 10px;
+}
+.with-ser {
+    font-family: 'Times New Roman', Times, serif;
+}
+.san-ser {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.cairo {
+    font-family: 'Cairo', sans-serif;
+}
+
+/* 
+    CSS Units
+    -px
+    -em => Time, takes the font from parent
+    -rem => Root Time, takes the font from HTML default (16px)
+    -percentage => take % from parent
+    -vw => View Port Width , takes 1% of the total width of the page ex: width=1000px  1vw=10px  5vw=50px
+    -vh => View Port Height , 1% of the viewport's height (50% means the half of the viewport height)
+    -vmin => takes 1% of the smallest dimension of the page. ex: (600px x 300px) it takes 1% of 300px so 3px=1vmin
+    -vmax => takes 1% of the largest dimension of the page. ex: (600px x 300px) it takes 1% of 600px so 6px=1vmin
+*/
+
+.unbold {
+    font-style: italic; 
+}
+.stylee {
+    font-variant: small-caps;
+    font-weight: bold;
+}
+/* 
+    font-style => you can me it italic or normal to revert from italic
+    font-weight => you can make it bold or normal to revert from bold
+*/
+
+.cursor a {
+    cursor: pointer;
+}
+.cursor span {
+    cursor: grab;
+}
+.cursor button {
+    cursor: move;
+}

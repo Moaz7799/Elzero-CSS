@@ -1,0 +1,278 @@
+.grid1 {
+    background-color: #ddd;
+    padding: 20px;
+    width: 800px;
+    height: 400px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 7fr;
+    gap: 20px 20px;
+}
+.grid1 div {
+    background-color: #607d8b;
+    display: flex;
+    counter-increment: num;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.grid1 div::before {
+    content: "Element " counter(num);
+}
+
+
+.layout {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: 80px auto 80px;
+    grid-template-areas: 
+        "H H H H H H H H H H"
+        "sec sec sec sec sec sec sec as as as"
+        "F F F F F F F F F F";
+    font-family: Arial, Helvetica, sans-serif;
+}
+.layout header {
+    grid-area: H;
+    background-color: #03a9f4;
+    color: white;
+    padding: 15px;
+}
+.layout header::after {
+    content: "Header";
+}
+.layout section {
+    grid-area: sec;
+    background-color: #ff5722;
+    color: white;
+    padding: 15px;
+}
+.layout section::after {
+    content: "Section";
+}
+.layout aside {
+    grid-area: as;
+    background-color: #607d8b;
+    color: white;
+    padding: 15px;
+}
+.layout aside::after {
+    content: "Aside";
+}
+.layout footer {
+    grid-area: F;
+    background-color: #009688;
+    color: white;
+    padding: 15px;
+}
+.layout footer::after {
+    content: "Footer";
+}
+
+
+.grid2 {
+    background-color: #ddd;
+    padding: 20px;
+    width: 800px;
+    height: 400px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto 1fr 1fr auto;
+    grid-template-rows: 1fr auto;
+    gap: 20px;
+}
+
+.grid2 div {
+    background-color: #403f3f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.grid3 {
+    background-color: #ddd;
+    padding: 20px;
+    width: 800px;
+    height: 400px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: 20px;
+    grid-template-areas:
+    "eight eight eight"
+    "two two three"
+    "four five five"
+    "six five five"
+    "seven five five"
+    "one one one";
+}
+
+.grid3 div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2196f3;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold ;
+    padding: 5px;
+    
+}
+
+.grid3 .one {
+    grid-area: one;
+} 
+.grid3 .two {
+    grid-area: two;
+} 
+.grid3 .three {
+    grid-area: three;
+} 
+.grid3 .four {
+    grid-area: four;
+} 
+.grid3 .five {
+    grid-area: five;
+} 
+.grid3 .six {
+    grid-area: six;
+} 
+.grid3 .seven {
+    grid-area: seven;
+}
+.grid3 .eight {
+    grid-area: eight;
+}
+
+
+.grid4 {
+    background-color: #ddd;
+    padding: 20px;
+    width: 800px;
+    height: 400px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-gap: 350px 20px;
+
+}
+
+.grid4 div {
+    background-color: #e91e63;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold ;
+}
+
+
+.grid5 {
+    background-color: #eee;
+    padding: 20px;
+    width: 1120px;
+    height: 1370px;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 330px 380px 380px 255px;
+    grid-gap: 10px;
+    grid-template-areas: 
+    "osama osama ahmed shady"
+    "moh mah mah shady"
+    "moh ezz ezz shady"
+    "say ibra gam eman";
+}
+
+.grid5 div {
+    padding: 0px 20px;
+    border-bottom: #f8845f solid 5px ;
+    position: relative;
+}
+
+.grid5 .name1 {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.grid5 .name {
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.grid5 .work {
+    font-size: 15px;
+    color: #a69592;
+    margin-top: -15px;
+    font-weight: 700;
+}
+
+.grid5 div::after {
+    content: "''";
+    position: absolute;
+    color: #b3b3b3;
+    font-size: 45px;
+    right: 12px;
+    bottom: -20px;
+    transform: rotate(10deg);
+}
+
+.grid5 .osama,
+.grid5 .ahmed,
+.grid5 .hema,
+.grid5 .ezz,
+.grid5 .sayed,
+.grid5 .gamal,
+.grid5 .eman {
+    background-color: #fff;
+}
+
+.grid5 .shady,
+.grid5 .mahmoud,
+.grid5 .hemasayed {
+    background-color: #000;
+    color: #fff;
+}
+
+.osama {
+    grid-area: osama;
+}
+.ahmed {
+    grid-area: ahmed;
+}
+.shady {
+    grid-area: shady;
+}
+.hema {
+    grid-area: moh;
+}
+.mahmoud {
+    grid-area: mah;
+}
+.ezz {
+    grid-area: ezz;
+}
+.sayed {
+    grid-area: say;
+}
+.hemasayed {
+    grid-area: ibra;
+}
+.gamal {
+    grid-area: gam;
+}
+.eman {
+    grid-area: eman;
+}
